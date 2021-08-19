@@ -5,7 +5,7 @@ import java.util.*;
 public class Study {
     public static void main(String[] args) {
 
-
+        BufferIntPut();
     }
 
     /**
@@ -94,5 +94,27 @@ public class Study {
 
     }
 
+    /**
+     * Buffer缓冲 输入流输出流实战
+     */
+    public static void BufferIntPut(){
+        try {
+            FileInputStream fis = new FileInputStream("C:\\Users\\rhxu3\\Desktop\\a.txt");
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\rhxu3\\Desktop\\c.txt");
+            BufferedInputStream bis = new BufferedInputStream(fis);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            int length;
+            byte[] bytes = new byte[1024];
+            while( (length = bis.read(bytes)) != -1 ){
+                bos.write(bytes,0,length);
+            }
+            bos.flush();
+            bis.close();
+            bos.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
 
 }
