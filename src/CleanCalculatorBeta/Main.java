@@ -1,4 +1,4 @@
-package test;
+package CleanCalculatorBeta;
 
 public class Main {
     public static void utils(cumpter cumpter , int num1, int num2){

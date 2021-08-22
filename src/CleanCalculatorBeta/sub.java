@@ -1,4 +1,4 @@
-package test;
+package CleanCalculatorBeta;
 
 public class sub implements cumpter {
     @Override
