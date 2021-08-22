@@ -5,7 +5,6 @@ import java.util.*;
 public class Study {
     public static void main(String[] args) {
 
-        BufferIntPut();
     }
 
     /**
@@ -96,6 +95,7 @@ public class Study {
 
     /**
      * Buffer缓冲 输入流输出流实战
+     * 路径需要改 文件需要建
      */
     public static void BufferIntPut(){
         try {
@@ -116,5 +116,10 @@ public class Study {
         }
 
     }
+
+    /**
+     * 多文件复制实战
+     * 路径需要改
+     */
 
 }
