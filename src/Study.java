@@ -117,6 +117,23 @@ public class Study {
 
     }
 
+    /**
+     * try-with-resource处理I/O异常
+     */
+    public static void TryWithResource(){
+        try(
+               BufferedInputStream bis = new BufferedInputStream(new FileInputStream("C:\\Users\\rhxu3\\Desktop\\a.txt"));
+               BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("C:\\Users\\rhxu3\\Desktop\\c.txt"));
+                ){
+                    int size;
+                    byte[] bytes = new byte[1024];
+                    while((size = bis.read(bytes)) != -1){
+                        bos.write(bytes,0,size);
+                    }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+    }
 
 }
