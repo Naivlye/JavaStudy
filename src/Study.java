@@ -1,5 +1,9 @@
 
 import java.io.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import java.util.*;
 
 public class Study {
@@ -134,6 +138,22 @@ public class Study {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * LocalDate
+     */
+    public static void LocalDateTest(){
+        LocalDate today = LocalDate.now();
+//        System.out.println("今天日期"+today);
+//        System.out.println("年份"+today.getYear());
+//        System.out.println("月份"+today.getMonth());
+//        System.out.println("月份（数字）"+today.getMonthValue());
+//        System.out.println("日"+today.getDayOfMonth());
+        LocalDateTime ldt = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd+HH:mm:ss");
+        String format = dateTimeFormatter.format(ldt);
+        System.out.println(format);
     }
 
 }
