@@ -1,0 +1,69 @@
+(1)普通的插入表数据
+	insert into 表名（字段名） values（字段对应值）；
+	
+	insert into 表名 values（所有字段对应值）；
+	
+(2)蠕虫复制（将一张表的数据复制到另一张表中）
+	insert into 表名1 select * from 表名2；
+	
+	insert into 表名1（字段名1，字段名2）select 字段名1，字段名2 from 表名2；
+	
+(3)建表复制
+	create table 表名1 as select 字段名1，字段名2 from 表名2；
+	
+(4)一次性插入多个数据
+	insert into 表名（字段名）values（对应值1），(对应值2），（对应值3）；
+	
+=============================================================================================
+	
+某个公司的员工表
+CREATE TABLE employee(
+	empno		INT(5) unsigned zerofill auto_increment  PRIMARY KEY  comment '雇员编号',
+	ename		VARCHAR(20) comment '雇员姓名',
+	job			VARCHAR(20) comment '雇员职位',
+	mgr			INT comment '雇员上级编号',
+	hiredate	DATE comment '雇佣日期',
+	sal			DECIMAL(7,2) comment '薪资',
+	deptnu		INT comment '部门编号'
+
+=============================================================================================	
+	
+表数据的修改以及删除
+
+修改（更新）：
+	update 表名 set 字段名1=值1 where 字段名=值；
+	
+	update 表名 set 字段名1=值1，字段名2=值2 where 字段名=值；
+	
+删除：
+	delete from 表名 where 字段名=值；
+	
+	会重新开始排
+	truncate table 表名；
+	会接着排
+	delete from 表名；
+	
+	drop table 表名；
+	
+
+注意事项：
+	面试时：面试官在问删改数据之前，你会怎么做？
+	答案：会对数据进行备份操作，以防万一，可以进行数据回退
+	面试时：面试官会问，delete 与truncate与drop这三种删除数据的共同点都是删除数据，他们的不同点是什么
+	delete 会删除的操作记录给记录起来，以便可以回退，不会释放空间，而且不会删除定义
+	truncate 不会记录删除操作，会把表占用的空间恢复到最初，不会删除定义
+	drop 会删除整张表，释放表占用的空间。
+	
+	删除速度
+	drop > truncate > delete
+
+查看当前mysql使用的字符集：show variables like 'character%';
+
+	character_set_client: 客户端请求数据的字符集
+	character_set_connection: 客户端与服务器连接的字符集
+	character_set_database: 数据库服务器中某个库的使用的字符集设定，如果建库时没有指明，将默认使用配置上的字符集
+	character_set_results: 返回给客户端的字符集（从数据库读取到的数据是什么编码的）
+	character_set_server: 为服务器安装时指定的默认字符集设定
+	character_set_system: 系统字符集（修改不了的，就是UTF-8）
+	character_sets_dir: mysql字符集文件的保存路径
+

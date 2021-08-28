@@ -1,0 +1,20 @@
+==========================================================================================
+
+mysql 限制root用户指定ip登录
+
+ update user set host='locakhost' where user='root';
+ 刷新权限： flush privileges;
+ 
+ ==========================================================================================
+ 
+ 修改用户密码
+ set password for 用户@ip = password('密码');
+ mysql admin -u用户 -p旧密码 password 
+
+==========================================================================================
+
+创建新用户
+ create user 'username'@'host' identified by 'password';
+ 
+ 查看权限：
+ select * from mysql.user where user = 'pig'\G
