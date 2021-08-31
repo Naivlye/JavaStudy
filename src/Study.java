@@ -101,7 +101,7 @@ public class Study {
      * Buffer缓冲 输入流输出流实战
      * 路径需要改 文件需要建
      */
-    public static void BufferIntPut(){
+    public static void BufferIntPut() {
         try {
             FileInputStream fis = new FileInputStream("C:\\Users\\rhxu3\\Desktop\\a.txt");
             FileOutputStream fos = new FileOutputStream("C:\\Users\\rhxu3\\Desktop\\c.txt");
@@ -109,13 +109,13 @@ public class Study {
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             int length;
             byte[] bytes = new byte[1024];
-            while( (length = bis.read(bytes)) != -1 ){
-                bos.write(bytes,0,length);
+            while ((length = bis.read(bytes)) != -1) {
+                bos.write(bytes, 0, length);
             }
             bos.flush();
             bis.close();
             bos.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -124,17 +124,17 @@ public class Study {
     /**
      * try-with-resource处理I/O异常
      */
-    public static void TryWithResource(){
-        try(
-               BufferedInputStream bis = new BufferedInputStream(new FileInputStream("C:\\Users\\rhxu3\\Desktop\\a.txt"));
-               BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("C:\\Users\\rhxu3\\Desktop\\c.txt"));
-                ){
-                    int size;
-                    byte[] bytes = new byte[1024];
-                    while((size = bis.read(bytes)) != -1){
-                        bos.write(bytes,0,size);
-                    }
-        }catch (Exception e){
+    public static void TryWithResource() {
+        try (
+                BufferedInputStream bis = new BufferedInputStream(new FileInputStream("C:\\Users\\rhxu3\\Desktop\\a.txt"));
+                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("C:\\Users\\rhxu3\\Desktop\\c.txt"));
+        ) {
+            int size;
+            byte[] bytes = new byte[1024];
+            while ((size = bis.read(bytes)) != -1) {
+                bos.write(bytes, 0, size);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -143,7 +143,7 @@ public class Study {
     /**
      * LocalDate
      */
-    public static void LocalDateTest(){
+    public static void LocalDateTest() {
         LocalDate today = LocalDate.now();
 //        System.out.println("今天日期"+today);
 //        System.out.println("年份"+today.getYear());

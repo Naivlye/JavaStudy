@@ -13,11 +13,12 @@ public class CopyMain {
         File file = new File(dir + "\\Saved Pictures");
         for (File listFile : file.listFiles()) {
             String fileName = listFile.getName();
-            copy(listFile.getAbsolutePath(),dir +"\\test1\\"+ fileName);
+            copy(listFile.getAbsolutePath(), dir + "\\test1\\" + fileName);
         }
 
 
     }
+
     public static void copy(String from, String to) {
         try {
             File file = new File(new File(to).getParent());
@@ -29,13 +30,13 @@ public class CopyMain {
 
             int size;
             byte[] bytes = new byte[1024];
-            while ((size = bis.read(bytes)) != -1){
-                bos.write(bytes,0,size);
+            while ((size = bis.read(bytes)) != -1) {
+                bos.write(bytes, 0, size);
             }
             bos.flush();
             bis.close();
             bos.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
